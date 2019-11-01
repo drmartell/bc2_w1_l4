@@ -8,6 +8,7 @@ import { PokemonList } from './PokemonList.js';
 // import { pokemons } from '../data/pokemons.js';
 // import { AddImage } from './AddImage.js';
 import { getPokemons } from '../services/pokedex-api.js';
+import { Paging } from './Paging.js';
 
 export class App extends Component {
 
@@ -21,6 +22,7 @@ export class App extends Component {
         const optionsSection = dom.querySelector('.options-section');
         optionsSection.prepend(optionsDOM);
 
+
         // const list = new List();
         // const listDOM = list.renderDOM();
         // const listSection = dom.querySelector('.list-section');
@@ -30,7 +32,10 @@ export class App extends Component {
 
         const pokemonList = new PokemonList(props);
         const pokemonListDOM = pokemonList.renderDOM();
+        const paging = new Paging();
+        const pagingDOM = paging.renderDOM();
         const listSection = dom.querySelector('.list-section');
+        listSection.appendChild(pagingDOM);
         listSection.appendChild(pokemonListDOM);
 
         const footer = new Footer();
@@ -48,10 +53,11 @@ export class App extends Component {
                 <!-- Header goes here -->
                 <main>
                     <section class="options-section">
-                        <!-- FilterImages goes here -->
+                        <!-- Options goes here -->
                     </section>
                     <section class="list-section">
-                        <!-- ImageList goes here -->
+                        <!-- Paging goes here -->
+                        <!-- PokemonList goes here -->
                     </section>
                     <section class="form-section">
                         <!-- AddImage Form goes here -->
