@@ -1,11 +1,11 @@
 import { Component } from '../Component.js';
 import { Header } from './Header.js';
 import { Options } from './Options.js';
-import { List } from './List.js';
+//import { List } from './List.js';
 import { Footer } from './Footer.js';
-// import { ImageList } from './ImageList.js';
+import { PokemonList } from './PokemonList.js';
 // import { FilterImages } from './FilterImages.js';
-// import { images } from '../data/images.js';
+import { pokemons } from '../data/pokemons.js';
 // import { AddImage } from './AddImage.js';
 
 export class App extends Component {
@@ -20,20 +20,19 @@ export class App extends Component {
         const optionsSection = dom.querySelector('.options-section');
         optionsSection.prepend(optionsDOM);
 
-        const list = new List();
-        const listDOM = list.renderDOM();
-        const listSection = dom.querySelector('.list-section');
-        listSection.prepend(listDOM);
-
-        // const props = {
-        //     // images
-        // };
-
-        // const imageList = new ImageList(props);
-        // const imageListDOM = imageList.renderDOM();
-
+        // const list = new List();
+        // const listDOM = list.renderDOM();
         // const listSection = dom.querySelector('.list-section');
-        // listSection.appendChild(imageListDOM);
+        // listSection.prepend(listDOM);
+
+        const props = {
+            pokemons
+        };
+
+        const pokemonList = new PokemonList(props);
+        const pokemonListDOM = pokemonList.renderDOM();
+        const listSection = dom.querySelector('.list-section');
+        listSection.appendChild(pokemonListDOM);
 
         // const filterImages = new FilterImages({
         //     // images: images,
